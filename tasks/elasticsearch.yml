@@ -1,7 +1,7 @@
 ---
-- name: ES apt repo
+- name: Elastic apt repo
   apt_repository:
-    repo: "deb http://packages.elastic.co/elasticsearch/{{ elk_elasticsearch.version }}/debian stable main"
+    repo: "deb http://artifacts.elastic.co/elasticsearch/{{ elk_elasticsearch.version }}/apt stable main"
     update_cache: yes
 
 - name: Install ES apt packages

@@ -1,9 +1,10 @@
 ---
 elk_java:
   openjdk:
-    - openjdk-7-jre-headless
+    - openjdk-8-jre-headless
 
 elk_common_packages:
+  - apt-transport-https
   - python-apt
   - python-pycurl
   - python-pip
@@ -11,7 +12,7 @@ elk_common_packages:
   # - monit
 
 elk_elasticsearch:
-  version: 2.x
+  version: 5.x
   pid_file: /var/run/elasticsearch/elasticsearch.pid
   http:
     port: 9200
@@ -19,7 +20,7 @@ elk_elasticsearch:
   bind_host: 0
 
 elk_logstash:
-  version: 2.2
+  version: 5.x
   pid_file: /var/run/logstash.pid
   configs:
     - { src: logstash.conf.j2, dest: simple.conf }
@@ -28,7 +29,7 @@ elk_logstash:
   patterns: [] # optional; follows same format as `configs`
 
 elk_kibana:
-  version: 4.4.0-linux-x64
+  version: 5.x
   path: /opt/kibana
   port: 5601
   # user: kibana # optional; if unset, kibana does not require authentication

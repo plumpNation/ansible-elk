@@ -17,8 +17,9 @@
 - name: Install Java
   include: java.yml
 
-- name: ES apt GPG key
-  apt_key: url=http://packages.elastic.co/GPG-KEY-elasticsearch
+- name: Elastic apt GPG key
+  apt_key:
+      url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
 
 - name: Install Elasticsearch
   include: elasticsearch.yml
