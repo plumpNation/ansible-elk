@@ -20,7 +20,7 @@
     owner: root
     group: root
     mode: 644
-  with_items: elk_logstash.configs
+  with_items: "{{ elk_logstash.configs }}"
   notify: restart logstash
 
 - name: Logstash pattern files
@@ -31,7 +31,7 @@
     owner: root
     group: root
     mode: 644
-  with_items: elk_logstash.patterns
+  with_items: "{{ elk_logstash.patterns }}"
   when: elk_logstash.patterns is defined
   notify: restart logstash
 
@@ -43,7 +43,7 @@
 - name: Install logstash plugins
   become: yes
   command: ./bin/plugin install {{ item }}
-  with_items: elk_logstash.plugins
+  with_items: "{{ elk_logstash.plugins }}"
   when: item not in logstash_plugins_installed.stdout
   args:
     chdir: /opt/logstash

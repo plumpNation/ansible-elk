@@ -3,7 +3,7 @@
   apt:
     name: "{{ item }}"
     state: latest
-  with_items: elk_common_packages
+  with_items: "{{ elk_common_packages }}"
 
 # - name: Monit conf file
 #   copy:
